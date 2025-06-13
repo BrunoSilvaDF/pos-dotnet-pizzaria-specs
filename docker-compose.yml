@@ -1,0 +1,67 @@
+services:
+  apigateway:
+    image: brunoosilva/ms-apigateway:latest
+    ports:
+      - "3001:8080"
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4317
+    depends_on:
+      - consul
+      - jaeger
+
+  notificacoesservice:
+    image: brunoosilva/ms-notificacoesservice:latest
+    # ports:
+    #   - "4001:8080"
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4317
+    depends_on:
+      - consul
+      - jaeger
+      - fake-smtp-server
+      
+  pedidosservice:
+    image: brunoosilva/ms-pedidosservice:latest
+    # ports:
+    #   - "4002:8080"
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4317
+    depends_on:
+      - consul
+      - jaeger
+
+  pizzaservice:
+    image: brunoosilva/ms-pizzaservice:latest
+    # ports:
+    #   - "4003:8080"
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4317
+    depends_on:
+      - consul
+      - jaeger
+
+  consul:
+    image: hashicorp/consul:latest
+    container_name: "consul"
+    ports:
+      - "5001:8500"
+  
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: "jaeger"
+    ports:
+      - "4317:4317"  
+      - "4318:4318" 
+      - "6001:16686" # UI
+  
+  fake-smtp-server:
+    image: gessnerfl/fake-smtp-server:latest
+    container_name: "fake-smtp-server"
+    restart: always
+    ports:
+      # - 8025:8025      #expose smtp port
+      - 7001:8080      #expose web ui
+      - 7002:8081      #expose management api
+
+
+

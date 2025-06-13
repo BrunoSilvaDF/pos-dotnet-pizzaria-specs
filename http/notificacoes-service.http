@@ -1,0 +1,19 @@
+@host=http://localhost:3001/notificacoes
+
+### Notificações ##
+
+### Obtém todas as notificações
+GET {{host}}/notificacao
+
+### Cadastra uma notificação
+POST {{host}}/notificacao
+Content-Type: application/json
+
+{
+    "destinatario": "bruno@gmail.com",
+    "mensagem": "A sua pizza foi aceita com sucesso!"
+}
+
+### Obtém uma notificação por ID do Pedido
+GET {{host}}/notificacao/pedido/00000000-0000-0000-0000-000000000000
+

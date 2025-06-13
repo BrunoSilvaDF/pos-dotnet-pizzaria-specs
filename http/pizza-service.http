@@ -1,0 +1,47 @@
+@host=http://localhost:3001/pizzas
+
+## Pizzas ##
+
+### Obter todas as pizzas
+GET {{host}}/sabor
+
+### Obt�m uma pizza pelo id
+@getPizzaId = 2
+GET {{host}}/sabor/{{getPizzaId}}
+
+### Cadastrar uma nova pizza
+POST {{host}}/sabor
+Content-Type: application/json
+
+{
+  "sabor": "Napolitanaa",
+  "tempoPreparo": 15
+}
+###
+
+## Estoque ##
+
+### Obt�m todo o estoque de pizzas
+GET {{host}}/estoque
+
+### Obt�m um estoque por id
+@getEstoqueId = 1
+GET {{host}}/estoque/{{getEstoqueId}}
+
+### Cria um novo estoque de pizzas
+POST {{host}}/estoque
+Content-Type: application/json
+
+{
+  "pizzaId": 1,
+  "quantidade": 15
+}
+
+### Obt�m o estoque de uma pizza espec�fica
+@getEstoquePizzaId = 1
+GET {{host}}/estoque/pizza/{{getEstoquePizzaId}}
+
+### Reduz o estoque de uma pizza espec�fica
+@putPizzaId = 2
+@putQuantidade = 1
+PUT {{host}}/estoque/pizza/{{putPizzaId}}/{{putQuantidade}}

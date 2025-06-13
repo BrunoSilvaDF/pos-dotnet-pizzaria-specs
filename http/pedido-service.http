@@ -1,0 +1,23 @@
+@host=http://localhost:3001/pedidos
+
+### Pedidos ###
+
+### Cria um novo pedido
+POST {{host}}/pedido
+Content-Type: application/json
+
+{
+    "cliente": "bruno@gmail.com",
+    "pizzaId": 1,
+    "quantidade": 1
+}
+
+### Obt�m um pedido por id
+GET {{host}}/pedido/d698f18f-b9c1-4175-94be-bf943db51961
+
+### Obt�m todos os pedidos
+GET {{host}}/pedido
+
+### Pedido de preparo
+@pedidoId = d698f18f-b9c1-4175-94be-bf943db51961
+PUT {{host}}/pedido/{{pedidoId}}/preparar
