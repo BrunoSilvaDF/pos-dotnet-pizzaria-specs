@@ -1,0 +1,1 @@
+docker push brunoosilva/ms-teste:latest

@@ -45,3 +45,26 @@ Rode os arquivos `test.ps1` (PowerShell) ou `test.sh` (Linux) para testar a apli
 ```bash
 docker run --rm --network="host" --env-file .env.example brunoosilva/ms-teste
 ```
+
+### Rodando os testes de integração manualmente
+
+1. Instale os pacotes do `npm` na pasta `integration-tests`:
+
+    ```bash
+    cd integration-tests
+    npm install
+    ```
+
+2. Execute os testes:
+
+    ```bash
+    npm test
+    ```
+
+3. Se preferir, você pode executar os testes de forma isolada:
+
+    ```bash
+    npm run test:pedidos
+    npm run test:pizza
+    npm run test:notificacoes
+    ```
