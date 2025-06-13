@@ -1,0 +1,1 @@
+C:\work\pos\dotnet-pizza\Pizzaria\IntegrationTests\obj\Debug\IntegrationTests.esproj.CoreCompileInputs.cache
