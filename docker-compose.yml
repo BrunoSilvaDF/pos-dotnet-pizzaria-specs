@@ -1,3 +1,8 @@
+# Entrega de Projeto de Microsserviços
+#
+# Nome: Bruno Oliveira da Silva
+# Nome: Bruno Oliveira da Silva
+
 services:
   apigateway:
     image: brunoosilva/ms-apigateway:latest
@@ -39,6 +44,8 @@ services:
     depends_on:
       - consul
       - jaeger
+
+# Ferramentas de suporte
 
   consul:
     image: hashicorp/consul:latest
