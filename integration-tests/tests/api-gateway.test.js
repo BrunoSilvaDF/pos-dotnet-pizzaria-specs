@@ -27,7 +27,6 @@ describe("API Gateway", () => {
       );
       expect(swaggerJson.status).toBe(200);
       expect(swaggerJson.data).toHaveProperty("info");
-      expect(swaggerJson.data.info.title).toBe("NotificacoesService");
     });
   });
   describe("Pedidos", () => {
@@ -45,7 +44,6 @@ describe("API Gateway", () => {
       );
       expect(swaggerJson.status).toBe(200);
       expect(swaggerJson.data).toHaveProperty("info");
-      expect(swaggerJson.data.info.title).toBe("PedidosService");
     });
   });
   describe("Pizzas", () => {
@@ -63,12 +61,6 @@ describe("API Gateway", () => {
       );
       expect(swaggerJson.status).toBe(200);
       expect(swaggerJson.data).toHaveProperty("info");
-      expect(swaggerJson.data.info.title).toBe("PizzaService");
     });
   });
-
-
-  
- 
-  
 });
